@@ -1,0 +1,36 @@
+<div class="main-navigation " sidebar style="left: {{left}}px;">
+  <nav class="navbar navbar-default menu" style="max-height:90vh">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#custom-navigation" aria-expanded="false"></button>
+        <a class="navbar-brand" ng-click="open()"> <span>Menu</span></a>
+      </div>
+      <div class="collapse navbar-collapse" id="custom-navigation">
+        <a class="close" ng-click="close()"><i class="icon-arrows_remove"></i></a>
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a ui-sref="site.home" ng-click="close()">Home</a>
+          </li>
+          <li class="active">
+            <a ui-sref="site.about" ng-click="close()">Meraki</a>
+          </li>
+          <li class="active">
+            <a ui-sref="site.projects" ng-click="close()">Progetti</a>
+          </li>
+          <li class="active">
+            <a ui-sref="site.contacts" ng-click="close()">Contatti</a>
+          </li>
+        </ul>
+        <!-- Start Author Info -->
+        <hr style="margin-top: 100px;"/>
+        <div class="footer-logo">
+          <a ui-sref="site.contacts">
+            <img style="max-width:200px;" ng-src="{{generalInfo.field_logo_completo[0].url}}"></a>
+          <span>{{generalInfo.field_nome[0].value|htmlToPlaintext}} 2016</span>
+          <span>All Rights Reserved</span>
+        </div>
+        <!-- End Author Info -->
+      </div>
+    </div>
+  </nav>
+</div>

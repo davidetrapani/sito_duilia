@@ -1,0 +1,31 @@
+<div class="light-grey-bg" >
+  <div class="container">
+    <div class="col-md-3">
+      <div class="footer-contact-info footer-widget">
+        <h5>{{generalInfo.field_nome[0].value|uppercase|htmlToPlaintext}}</h5>
+        <address>{{generalInfo.field_indirizzo[0].value}} <br>{{generalInfo.field_citta[0].value}}, {{generalInfo.field_cap[0].value}}</address>
+        <span class="phone" ng-repeat="telefono in generalInfo.field_telefono"><i class="fa fa-phone"></i> {{telefono.value}}</span>
+        <span class="mail"><i class="fa fa-envelope"></i> <a ng-href="{{'mailto:'+generalInfo.field_email_form[0].value}}" title="{{generalInfo.field_email_form[0].value}}">{{generalInfo.field_email_form[0].value}}</a></span>
+        <!--<a href="contact.html" title="LOCATE ON MAP" class="location-map">LOCATE ON MAP</a>-->
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="footer-contact-us footer-widget">
+        <h5>{{generalInfo.field_services_title[0].value}}</h5>
+        <div ng-bind-html="generalInfo.field_services_body[0].value"></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="footer-get-in-touch">
+        <h5></h5>
+        <div class="footer-logo">
+          <a ui-sref="site.contacts">
+            <img style="max-width:200px;" ng-src="{{generalInfo.field_logo_completo[0].url}}"></a>
+          <span>{{generalInfo.field_nome[0].value | htmlToPlaintext}} 2016</span>
+          <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="clearfix margin-80"></div>

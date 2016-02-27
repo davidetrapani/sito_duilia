@@ -1,0 +1,19 @@
+<div class="modal-body"
+     ng-controller="LightBoxCtrl"
+     ng-swipe-left="Lightbox.nextImage()"
+     ng-swipe-right="Lightbox.prevImage()">
+  <button class="lightbox-nav-left-button"
+            ng-click="Lightbox.prevImage()">
+    <i class="icon-arrows_left"></i>
+  </button>
+  <button  class="lightbox-nav-right-button" ng-click="Lightbox.nextImage()">
+    <i class="icon-arrows_right"></i>
+  </button>
+  <button class="lightbox-nav-close-button" ng-click="close()">
+    <i class="icon-arrows_remove"></i>
+  </button>
+  <!-- image -->
+  <div class="lightbox-image-container">
+    <img class="lightbox-image" lightbox-src="{{Lightbox.imageUrl}}">
+  </div>
+</div>

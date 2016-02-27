@@ -1,0 +1,114 @@
+<ui-gmap-google-map center='map.center' zoom='map.zoom' ng-if="generalInfo" options="mapOptions">
+  <ui-gmap-marker coords="marker.coords" idkey="marker.id"></ui-gmap-marker>
+</ui-gmap-google-map>
+
+
+<div class="margin-40"></div>
+<section id="section1">
+
+  <!--
+  <div class="row margin-40">
+    <div class="col-md-5">
+      <h2 class="small-red-line-left">{{contact_page.title[0].value}}</h2>
+      <p ng-bind-html="pageContent" class="light-blue-text"></p>
+    </div>
+  </div>
+  -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Start Text Block -->
+          <div class="text-block">
+            <div class="number-block"><span><i class="fa fa-map-marker"></i></span></div>
+            <h4>{{generalInfo.field_indirizzo[0].value}} {{generalInfo.field_citta[0].value}}, {{generalInfo.field_cap[0].value}}</h4>
+          </div>
+          <!-- End Text Block -->
+        </div>
+        <div class="col-md-4">
+          <!-- Start Text Block -->
+          <div class="text-block">
+            <div class="number-block"><span><i class="fa fa-phone"></i></span></div>
+            <h4>{{generalInfo.field_telefono[0].value}}<br> {{generalInfo.field_telefono[1].value}}<br> {{generalInfo.field_telefono[2].value}}</h4>
+          </div>
+          <!-- End Text Block -->
+        </div>
+        <div class="col-md-4">
+          <!-- Start Text Block -->
+          <div class="text-block">
+            <div class="number-block"><span><i class="fa fa-envelope"></i></span></div>
+            <h4>
+              <a ng-href="{{'mailto:'+generalInfo.field_email_form[0].value}}" title="{{generalInfo.field_email_form[0].value}}">{{generalInfo.field_email_form[0].value}}</a> <br>
+              <a ng-href="{{'mailto:'+generalInfo.field_email_form[1].value}}" title="{{generalInfo.field_email_form[1].value}}">{{generalInfo.field_email_form[1].value}}</a><br>
+              <a ng-href="{{'mailto:'+generalInfo.field_email_form[2].value}}" title="{{generalInfo.field_email_form[2].value}}">{{generalInfo.field_email_form[2].value}}</a>
+            </h4>
+          </div>
+          <!-- End Text Block -->
+        </div>
+
+        <!--
+        <div class="col-md-3">
+          <div class="text-block">
+            <div class="number-block"><span>S</span></div>
+            <div class="social-icons-black pull-left">
+              <ul class="social-icons-colored">
+                <li class="behance" ng-show="generalInfo.field_behance[0].uri"><a ng-href="{{generalInfo.field_behance[0].uri}}"><i class="fa fa-behance"></i></a></li>
+                <li class="twitter" ng-show="generalInfo.field_twitter[0].uri"><a ng-href="{{generalInfo.field_twitter[0].uri}}"><i class="fa fa-twitter"></i></a></li>
+                <li class="googleplus" ng-show="generalInfo.field_google_[0].uri"><a ng-href="{{generalInfo.field_google_[0].uri}}"><i class="fa fa-google-plus"></i></a></li>
+                <li class="flikr" ng-show="generalInfo.field_flickr[0].uri"><a ng-href="{{generalInfo.field_flickr[0].uri}}"><i class="fa fa-flickr"></i></a></li>
+                <li class="linkedin" ng-show="generalInfo.field_linkedin[0].uri"><a ng-href="{{generalInfo.field_linkedin[0].uri}}"><i class="fa fa-linkedin"></i></a></li>
+                <li class="facebook" ng-show="generalInfo.field_facebook[0].uri"><a ng-href="{{generalInfo.field_facebook[0].uri}}"><i class="fa fa-facebook"></i></a></li>
+                <li class="pinterest" ng-show="generalInfo.field_pinterest[0].uri"><a ng-href="{{generalInfo.field_pinterest[0].uri}}"><i class="fa fa-pinterest"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section2">
+  <div class="row">
+    <div class="col-md-12">
+      <form method="post" id="contactform" name="contactform" class="contact-form clearfix" ng-submit="submitForm()" >
+        <div class="row">
+          <div class="col-md-12 margin-20">
+            <h4 class="">{{contact_page.title[0].value}}</h4>
+          </div>
+          <div class="form-group clearfix">
+            <div class="col-md-4">
+              <label class="sr-only">Nome *</label>
+              <input required type="text" id="name" name="name" ng-model="name" class="form-control" value="" placeholder="Inserisci il nome...">
+            </div>
+            <div class="col-md-4">
+              <label class="sr-only">Indirizzo email *</label>
+              <input required type="email" id="email" name="email" ng-model="email" class="form-control" value="" placeholder="Inserisci la mail...">
+            </div>
+            <div class="col-md-4">
+              <label class="sr-only">Oggetto</label>
+              <input type="text" id="subject" name="subject" ng-model="subject" class="form-control" value="" placeholder="Oggetto (Opzionale)">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group clearfix">
+            <div class="col-md-12">
+              <label class="sr-only">Corpo del messaggio *</label>
+              <textarea required id="comments" name="comments"ng-model="comments"  class="form-control" rows="6" placeholder="Corpo del messaggio..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-align-center">
+            <input type="submit" name="submit" id="submit" class="btn btn-primary submit-button" value="Invia" ng-disabled="!contactform.$valid">
+          </div>
+        </div>
+      </form>
+      <div class="clearfix"></div>
+      <div id="message"></div>
+    </div>
+  </div>
+</section>
+<div class="spacer-100"></div>

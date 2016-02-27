@@ -1,0 +1,24 @@
+<footer class="footer">
+  <div class="get-in-touch">
+   <div class="container">
+    <!-- Start Row -->
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <a ui-sref="site.contacts" title="GET IN TOUCH"><i class="fa fa-envelope"></i> <span class="hidden-xs">CONTATTACI</span></a>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="btn-toolbar pull-right" role="toolbar">
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_twitter[0].uri"><a ng-href="{{generalInfo.field_twitter[0].uri}}"><i class="fa fa-twitter"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_linkedin[0].uri"><a ng-href="{{generalInfo.field_linkedin[0].uri}}"><i class="fa fa-linkedin"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_facebook[0].uri"><a ng-href="{{generalInfo.field_facebook[0].uri}}"><i class="fa fa-facebook"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_google_[0].uri"><a ng-href="{{generalInfo.field_google_[0].uri}}"><i class="fa fa-google-plus"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_flickr[0].uri"><a ng-href="{{generalInfo.field_flickr[0].uri}}"><i class="fa fa-flickr"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_pinterest[0].uri"><a ng-href="{{generalInfo.field_pinterest[0].uri}}"><i class="fa fa-pinterest-p"></i></a></div>
+          <div class="btn-group footer_button" role="group" ng-show="generalInfo.field_behance[0].uri"><a ng-href="{{generalInfo.field_behance[0].uri}}"><i class="fa fa-behance"></i></a></div>
+        </div>
+      </div>
+    </div>
+    <!-- End Row -->
+  </div>
+  </div>
+</footer>

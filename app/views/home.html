@@ -1,0 +1,70 @@
+<div class="main" role="main">
+  <!-- Start Page Header -->
+  <div class="page-header-white">
+    <div ng-bind-html="homeContent"></div>
+  </div>
+  <!-- End Page Header -->
+  <section class="container fading" id="section1" ng-if="projects.length>0 ">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="grid-filter text-align-center hidden-sm hidden-xs" >
+          <ul class="nav nav-pills sort-source" opt-kind ok-key="filter">
+            <li class='' ok-sel="*">
+              <a href=""><span class="active" ok-sel="*">Tutto</span></a>
+            </li>
+            <li
+                ng-repeat="project_type in project_types track by project_type.key">
+              <a href=""><span ok-sel=".{{project_type.key}}">{{project_type.value}}</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="row">
+          <!-- https://github.com/mankindsoftware/angular-isotope/issues/15 -->
+          <ul class="projectList" id="isotopeContainer" isotope-container images-loaded ng-cloak class="ng-cloak">
+            <li ng-repeat="project in projects" isotope-item class="projectPreview {{project.class}}">
+              <a ui-sref="site.project({projectId : project.nid[0].value})">
+                <img class="img-responsive" ng-src="{{!cond && project.field_preview[0].url || project.field_preview_extended[0].url}}" alt="" preview-image/>
+                <!--<div class="caption-wrapper-alt">
+                  <div class="caption-left-bottom" style="background:none; color: white" ng-if="cond">
+                    <div class="caption-inner" style="padding-top: 10px; background-color: rgba(255, 255, 255, 0.80)" >
+                      <h4 class="small-red-line-left" style="color:black">{{project.field_main_image[0].title}}</h4>
+                      <small style="color:black">{{project.field_main_image[0].alt}}</small>
+                    </div>
+                  </div>
+                  <div class="">
+                    <img ng-src="{{!cond && project.field_preview[0].url || project.field_preview_extended[0].url}}" alt="" preview-image>
+                  </div>
+                </div>-->
+                <!--
+                  <img style="position:relative; top:0px" class="  img-preview" ng-src="{{project.field_preview_extended[0].url}}" alt="" ng-if="showColor[$index]" ng-mouseleave="showColor[$index]=false">
+                  <img style="position:relative; top:0px" class="  img-preview-bw" ng-src="{{project.field_preview_extended[0].url}}" alt="" ng-if="!showColor[$index]" ng-mouseenter="showColor[$index]=true">
+
+                   -->
+                <!--
+                <div class="caption-wrapper">
+                   <div class="caption-left-bottom" style="background:none; color: white">
+                     <div class="caption-inner" style="padding-top: 10px; background-color: rgba(255, 255, 255, 0.80)">
+                       <h4 class="small-red-line-left" style="color:black">{{project.field_main_image[0].title}}</h4>
+                       <small style="color:black">{{project.field_main_image[0].alt}}</small>
+                     </div>
+                   </div>
+                   <div class="imgb">
+                     <img  ng-src="{{project.field_preview_extended[0].url}}" alt="" >
+                   </div>
+                 </div>
+                -->
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Start View More -->
+    <div class="view-more">
+      <a  ui-sref="site.projects">View More</a>
+    </div>
+    <!-- End View More -->
+  </section>
+  <!-- End Case Study Block -->
+</div>
+<div class="spacer-75"></div>

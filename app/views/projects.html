@@ -1,0 +1,72 @@
+<div class="page-header-light light-grey-bg padding-tb125 margin-80" ng-if="projects_page[0].field_showpageheader_progetti[0].value=='1'">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="page-title">{{projects_page[0].field_page_header_progetti[0].value}}</h1>
+        <h1 class="page-title-clone">{{projects_page[0].field_page_header_progetti[0].value}}</h1>
+      </div>
+      <div class="col-md-5">
+        <p class="page-title-description" ng-bind-html="projects_page[0].field_header_subject_progetti[0].value"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-if="projects_page[0].body[0]" class="page-header-white padding-tb45 margin-40">
+  <div ng-bind-html="pageContent"></div>
+</div>
+
+
+<section class="container fading" id="section1" ng-if="projects.length>0 ">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid-filter text-align-center">
+        <ul class="nav nav-pills sort-source" opt-kind ok-key="filter">
+          <li class='' ok-sel="*">
+            <a href=""><span class="active" ok-sel="*">Tutto</span></a>
+          </li>
+          <li
+            ng-repeat="project_type in project_types track by project_type.key">
+            <a href=""><span ok-sel=".{{project_type.key}}">{{project_type.value}}</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <!-- https://github.com/mankindsoftware/angular-isotope/issues/15 -->
+        <ul id="isotopeContainer" style="list-style-type: none" isotope-container images-loaded ng-cloak class="ng-cloak">
+          <li ng-repeat="project in projects" isotope-item class="{{project.class}}">
+
+            <div class="hidden-md hidden-lg" ui-sref="site.project({projectId : project.nid[0].value})">
+              <h4 class="" style="margin-bottom: 0px">{{project.field_main_image[0].title}}</h4>
+              <p class="light-blue-text">{{project.field_main_image[0].alt}}</p>
+            </div>
+
+            <div class="col-md-12 margin-40 clickable" ui-sref="site.project({projectId : project.nid[0].value})">
+              <!-- Start Text Block -->
+              <div class="caption-wrapper">
+                <div class="caption-left-bottom overlay-white">
+                  <div class="caption-inner">
+                    <h2 class="small-red-line-left">{{project.field_main_image[0].title}}</h2>
+                    <p class="light-blue-text">{{project.field_main_image[0].alt}}</p>
+                  </div>
+                </div>
+                <div class="imgb"> <img ng-src="{{project.field_main_image[0].url}}" alt=""> </div>
+              </div>
+
+
+              <div class="hidden-md hidden-lg small-red-line-left" ui-sref="site.project({projectId : project.nid[0].value})">
+              </div>
+
+              <!-- End Text Block -->
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Start View More -->
+  <div class="view-more">
+    <!-- <a  ui-sref="site.projects">View More</a> -->
+   </div>
+   <!-- End View More -->
+</section>

@@ -1,0 +1,109 @@
+<div ng-if="!found"><h1>NOT FOUND</h1></div>
+<div class="page-header-light light-grey-bg padding-tb125 margin-80" ng-if="project.field_showpageheader[0].value=='1'">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1 class="page-title">{{project.field_project_header[0].value}}</h1>
+        <h1 class="page-title-clone">{{project.field_project_header[0].value}}</h1>
+      </div>
+      <div class="col-md-5">
+        <p class="page-title-description">{{project.field_header_subject[0].value}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="row margin-40" id="section1" ng-if="found">
+  <div class="col-md-12">
+    <div class="caption-left-bottom" ng-if="project.field_mostra_titolo[0].value=='1'">
+      <div class="caption-inner">
+        <h2 class="small-red-line-left">{{project.title[0].value}}</h2>
+        <p class="light-blue-text">{{project.field_subtitle[0].value}}</p>
+      </div>
+    </div>
+    <div class="caption-left-bottom hidden-lg hidden-md">
+      <div class="caption-inner">
+        <h4 class="small-red-line-left">{{project.title[0].value}}</h4>
+        <p class="light-blue-text">{{project.field_subtitle[0].value}}</p>
+      </div>
+    </div>
+    <!-- Start Text Block -->
+    <div class="caption-wrapper">
+      <div class="caption-left-bottom overlay-white">
+        <div class="caption-inner">
+          <h2 class="small-red-line-left">{{project.field_main_image[0].title}}</h2>
+          <p class="light-blue-text">{{project.field_main_image[0].alt}}</p>
+        </div>
+      </div>
+      <div class="imgb"> <img ng-src="{{project.field_main_image[0].url}}" alt=""> </div>
+    </div>
+    <!-- End Text Block -->
+  </div>
+</section>
+<!-- <section>
+  <div class="row">
+    <div class="col-md-6">
+      <span style="display: block"><span style="margin-right: 22px; min-width:50px"><strong><em>Anno:</em></strong>   </span> <span>{{project.field_year[0].value}}</span></span>
+      <span style="display: block"><span style="margin-right: 15px; min-width:50px"><strong><em>Luogo:</em></strong>  </span> <span>{{project.field_luogo[0].value}}</span></span>
+      <span style="display: block"><span style="margin-right: 10px; min-width:50px"><strong><em>Cliente:</em></strong></span> <span>{{project.field_cliente[0].value}}</span></span>
+      <span style="display: block"><span style="margin-right: 15px; min-width:50px"><strong><em>Status:</em></strong> </span> <span>{{project.field_status[0].value}}</span></span>
+    </div>
+  </div>
+</section>-->
+<section class="row" id="section2" ng-if="found">
+  <div class="col-md-6">
+    <div ng-bind-html="project.content"></div>
+  </div>
+  <div class="col-md-6">
+    <!--<div class="spacer-50"></div>-->
+    <!--<p>{{project.field_summary[0].value}}</p>-->
+    <!--<div class="spacer-50"></div>-->
+
+    <span style="display: block"><span style="margin-right: 22px; min-width:50px"><strong><em>Anno:</em></strong>   </span> <span>{{project.field_year[0].value}}</span></span>
+    <span style="display: block"><span style="margin-right: 15px; min-width:50px"><strong><em>Luogo:</em></strong>  </span> <span>{{project.field_luogo[0].value}}</span></span>
+    <span style="display: block"><span style="margin-right: 10px; min-width:50px"><strong><em>Cliente:</em></strong></span> <span>{{project.field_cliente[0].value}}</span></span>
+    <span style="display: block"><span style="margin-right: 15px; min-width:50px"><strong><em>Status:</em></strong> </span> <span>{{project.field_status[0].value}}</span></span>
+    <hr/>
+    <div class="row margin-30 mfp-popup" ng-repeat="image in project.field_project_images" ng-if="$index % 3 == 0" >
+      <div class="col-md-4 col-sm-4 col-xs-4 format-image"> <a href="" class="media-box" ng-click="openLightboxModal($index)" ng-if="project.field_project_images[$index].url"><img src="{{project.field_project_images[$index].url}}" class="full-image" alt=""><span class="zoom"><span class="icon"><i class="icon-arrows_expand"></i></span></span></a> </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 format-image"> <a href="" class="media-box" ng-click="openLightboxModal($index)" ng-if="project.field_project_images[$index +1].url"><img src="{{project.field_project_images[$index +1].url}}" class="full-image" alt=""><span class="zoom"><span class="icon"><i class="icon-arrows_expand"></i></span></span></a> </div>
+      <div class="col-md-4 col-sm-4 col-xs-4 format-image"> <a href="" class="media-box" ng-click="openLightboxModal($index)" ng-if="project.field_project_images[$index +2].url"><img src="{{project.field_project_images[$index +2].url}}" class="full-image" alt=""><span class="zoom"><span class="icon"><i class="icon-arrows_expand"></i></span></span></a> </div>
+    </div>
+  </div>
+</section>
+<hr class="fw" ng-if="found && project.contentExtra">
+<section class="row margin-20" id="section3" ng-if="found && project.contentExtra">
+  <div ng-bind-html="project.contentExtra"></div>
+</section>
+
+<hr/>
+
+<section>
+<h5>Altri progetti</h5>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="grid-filter text-align-center  hidden-sm hidden-xs" style="padding-right: 33px;">
+        <ul class="nav nav-pills sort-source" opt-kind ok-key="filter">
+          <li class='' ok-sel="*">
+            <a href=""><span class="active" ok-sel="*">Tutto</span></a>
+          </li>
+          <li
+            ng-repeat="project_type in project_types track by project_type.key">
+            <a href=""><span ok-sel=".{{project_type.key}}">{{project_type.value}}</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <!-- https://github.com/mankindsoftware/angular-isotope/issues/15 -->
+        <ul class="projectList" id="isotopeContainer" isotope-container images-loaded ng-cloak class="ng-cloak" >
+          <li ng-repeat="project in projects" isotope-item class="projectPreviewSmall {{project.class}}">
+            <a ui-sref="site.project({projectId : project.nid[0].value})">
+              <img ng-src="{{project.field_preview_small[0].url}}" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="view-more"></div>

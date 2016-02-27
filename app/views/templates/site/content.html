@@ -1,0 +1,12 @@
+<!-- header -->
+<div ng-include="'views/templates/site/header.html'"      include-replace></div>
+<div ng-include="'views/templates/site/navigation.html'"  include-replace></div>
+<!-- content -->
+<div class="container" id="page-wrapper">
+  <div class="body">
+    <div ui-view></div>
+  </div>
+</div>
+<div ng-include="'views/templates/site/page_footer.html'" include-replace></div>
+<!-- footer -->
+<div ng-include="'views/templates/site/footer.html'" include-replace></div>
